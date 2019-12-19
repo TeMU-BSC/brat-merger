@@ -1,0 +1,9 @@
+Pre-annotatoin tools sometimes does not detect the correct spains, for exammple for NIHSS|NIHSS 0, if we have NIHSS :, we detect NIHSS : as a NIHSS category. or for Tratamiento_anticoagulante|acenocumarol
+if we have acenocumaro:, we detect it as a Tratamiento_anticoagulante category. 
+
+
+In merging Variables and Section, we are fixing spans of variables if we have punctuations at first or at end.
+
+Important:
+For bunch 1 to 4, because our pipleline does not detect all type of NIHSS, mRANKIN and ASPECTS, we fixed them, but after improving the pipeline, we should not apply span fixer for these three category
+ 
