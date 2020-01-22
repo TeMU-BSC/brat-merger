@@ -397,8 +397,8 @@ class merge():
 
                 file_section_variavle[file] = section_dic
                 w_contaxt_awareness.write('http://temu.bsc.es/ICTUSnet/diff.xhtml?diff=/' + annotator + "/" +
-                        self.set.split("+")[0] + '/#/' + annotator + "/." + self.set.split("+")[
-                            0] + "/" + file.replace(".ann", "") + "\n")
+                        self.set.split("+")[0] + '/#/' + annotator + "/." + self.set
+                            + "/" + file.replace(".ann", "") + "\n")
             self.section_variable[annotator] = file_section_variavle
 
         print(removed_varibale,
