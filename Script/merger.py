@@ -2,6 +2,7 @@ import os
 import string
 from os import listdir
 import argparse
+import copy
 
 from unidecode import unidecode
 
@@ -25,6 +26,11 @@ class merge():
         self.section_variable = dict()
 
         self.validated_files = []
+
+        self.required_headers = ["SECCION_DIAGNOSTICO_PRINCIPAL", "SECCION_DIAGNOSTICOS"]
+        self.required_main_variables = ["Ictus_isquemico", "Ataque_isquemico_transitorio", "Hemorragia_cerebral"]
+        self.required_second_variables = ["Arteria_afectada", "Localizacion", "Lateralizacion", "Etiologia"]
+
 
     def context_dic(self, path):
         with open(path, "r") as h:
@@ -402,8 +408,27 @@ class merge():
             self.section_variable[annotator] = file_section_variavle
 
         print(removed_varibale,
-              "Number of variables that have been removed for SUG_Lateralizacion and _SUG_Etiologia\n")
+              "Number of variables that have been removed for _SUG_Lateralizacion and _SUG_Etiologia\n")
 
+    def diagnostic_filterring(self):
+        print("Remove Diagnostic variables that are not in Diagnostic seccion ")
+        counter =  0
+        all =  0
+        section_variable_original = copy.deepcopy(self.section_variable)
+        for annotator, files in self.section_variable.items():
+            for file, sections in files.items():
+                for section, records in sections.items():
+                    new_record = records[:]
+                    for record in new_record:
+                        all += 1
+                        if record["T"] != "Details" and \
+                                section not in self.required_headers and \
+                                (record["label"].split("_SUG_")[-1] in self.required_main_variables or
+                                record["label"].split("_SUG_")[-1] in self.required_second_variables):
+                            self.section_variable[annotator][file][section].remove(record)
+                            counter+=1
+
+        print("Number of removed variabes:", counter, "out of", all)
     def context_awareness(self):
 
         # For first time, Contect_awareness would be apply just for 8 new duplicated files on Bunch 5.
@@ -618,6 +643,9 @@ if __name__ == "__main__":
     merge_func.get_variables(variable_root)
 
     merge_func.merged_dic()
+
+    merge_func.diagnostic_filterring()
+
     merge_func.context_awareness()
 
     final_root = section_root.replace("ANN_SECTION", "ANN_FINAL")
