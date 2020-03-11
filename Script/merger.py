@@ -25,6 +25,7 @@ class merge():
         self.annotators = []
         self.section_variable = dict()
 
+
         self.validated_files = []
 
         self.required_headers = ["SECCION_DIAGNOSTICO_PRINCIPAL", "SECCION_DIAGNOSTICOS"]
@@ -32,6 +33,7 @@ class merge():
         self.required_second_variables = ["Arteria_afectada", "Localizacion", "Lateralizacion", "Etiologia"]
 
 
+        # self.fecha_hora_corresponents = ["TAC_craneal", "Test_de_disfagia", "Trombectomia_mecanica", "Trombolisis_intravenosa"]
     def context_dic(self, path):
         with open(path, "r") as h:
             for line in h:
@@ -88,7 +90,6 @@ class merge():
                     header_dict[f] = entities_ordered
             self.section[annotator] = header_dict
 
-
     def span_fixer(self, text, start_span, end_span, label):
         punctuation = string.punctuation
         before_rstrip = len(text)
@@ -114,7 +115,9 @@ class merge():
 
     def get_variables(self, variable_root):
         print(
-            "List of removed variables that have been removed if the variable is duration (not min, hor) and we a longest variable is available for that begin span.")
+            "List of removed variables that have been removed if the variable is duration/Tiempo (not min, hor) and if a longest variable is available for that begin span.")
+        # 
+        #
         counter_removed = 0
         varibale = dict()
         varibale_hash = dict()
@@ -124,7 +127,7 @@ class merge():
             varibale_dict = dict()
             varibale_hash_dict = dict()
             for f in listdir(variable_brat):
-                if f.replace(".ann", "").replace(".txt.xmi","") in self.validated_files:
+                if f.replace(".ann", "").replace(".txt.xmi", "") in self.validated_files:
 
                     # if f.startswith("432062870"):
                     #     print("Done")
@@ -147,7 +150,8 @@ class merge():
                                 #     print("Check")
                                 if not l.startswith("#"):
                                     label = line[1].split(" ", 2)
-                                    text, start_span, end_span = self.span_fixer(line[2][:-1], int(label[1]), int(label[2]), label[0])
+                                    text, start_span, end_span = self.span_fixer(line[2][:-1], int(label[1]),
+                                                                                 int(label[2]), label[0])
                                     temp = label[0] + " " + str(start_span) + " " + str(end_span)
 
                                     l_3 = temp.split(" ", 2)
@@ -236,6 +240,7 @@ class merge():
     def merged_dic(self):
         print(
             "List of removed pre-annotated _SUG_Lateralizacion and _SUG_Etiologia happend in the middle of the SUG Seccion")
+        #
         removed_varibale = 0
         w_contaxt_awareness = open(
             os.path.join(merge_func.parentDir, "documents") + "/diff_link_contax_awareness_and_not", 'w')
@@ -403,8 +408,8 @@ class merge():
 
                 file_section_variavle[file] = section_dic
                 w_contaxt_awareness.write('http://temu.bsc.es/ICTUSnet/diff.xhtml?diff=/' + annotator + "/" +
-                        self.set.split("+")[0] + '/#/' + annotator + "/." + self.set
-                            + "/" + file.replace(".ann", "") + "\n")
+                                          self.set.split("+")[0] + '/#/' + annotator + "/." + self.set
+                                          + "/" + file.replace(".ann", "") + "\n")
             self.section_variable[annotator] = file_section_variavle
 
         print(removed_varibale,
@@ -412,25 +417,36 @@ class merge():
 
     def diagnostic_filterring(self):
         print("Remove Diagnostic variables that are not in Diagnostic seccion ")
-        counter =  0
-        all =  0
+        counter = 0
+        all = 0
         section_variable_original = copy.deepcopy(self.section_variable)
         for annotator, files in self.section_variable.items():
             for file, sections in files.items():
+                first_main_variables = []
                 for section, records in sections.items():
                     new_record = records[:]
                     for record in new_record:
                         all += 1
-                        if record["T"] != "Details" and \
-                                section not in self.required_headers and \
-                                (record["label"].split("_SUG_")[-1] in self.required_main_variables or
-                                record["label"].split("_SUG_")[-1] in self.required_second_variables):
-                            self.section_variable[annotator][file][section].remove(record)
-                            counter+=1
+                        if record["T"] != "Details":
+                            if section not in self.required_headers:
+                                    if (record["label"].split("_SUG_")[-1] in self.required_main_variables or
+                                     record["label"].split("_SUG_")[-1] in self.required_second_variables):
+                                        self.section_variable[annotator][file][section].remove(record)
+                                        counter += 1
+                            elif record["label"].split("_SUG_")[-1] in self.required_main_variables:
+                                    if record["label"].split("_SUG_")[-1] in first_main_variables:
+                                        self.section_variable[annotator][file][section].remove(record)
+                                        counter += 1
+                                        # first_main_variables.append(record["label"].split("_SUG_")[-1])
+                                    else:
+                                        first_main_variables.append(record["label"].split("_SUG_")[-1])
+
+
 
         print("Number of removed variabes:", counter, "out of", all)
-    def context_awareness(self):
 
+
+    def context_awareness(self):
         # For first time, Contect_awareness would be apply just for 8 new duplicated files on Bunch 5.
         print("List of removed variables based on the contect awareness:")
         counter_removed = 0
@@ -646,7 +662,7 @@ if __name__ == "__main__":
 
     merge_func.diagnostic_filterring()
 
-    merge_func.context_awareness()
+    # merge_func.context_awareness()
 
     final_root = section_root.replace("ANN_SECTION", "ANN_FINAL")
     merge_func.save_accepted_varibales(final_root)
