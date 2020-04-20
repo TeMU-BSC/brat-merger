@@ -1,9 +1,1 @@
-*.csv
-*.txt
-*.xml
-*.ann
-*.xmi
-*.png
-*.iml
-*.zip
 *.DS_Store
