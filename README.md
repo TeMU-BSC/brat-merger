@@ -1,5 +1,6 @@
 # BratMerger #
 
+
 ## Introduction
 
 This project is about merging the annotations in BRAT and 
