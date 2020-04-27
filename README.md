@@ -25,11 +25,9 @@ This script was used to merge the annnotations
 **For merging the annotations in BRAT, use follwoing command:**
 
 <pre>
-$ python3 merger.py --set NUMBER
+$ python3 merger.py 
 </pre>
-<pre>
---set       (Mandatory) Number of bunch [For example: 01]
-</pre>
+
 
 
 ## Contact

@@ -514,7 +514,6 @@ class merge():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="analysis")
-    parser.add_argument('--set', help='Which set is going to compare')
     parser.add_argument('--data', help='Input ANN EHRs directories.')
 
     args = parser.parse_args()
