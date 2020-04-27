@@ -73,15 +73,19 @@ class merge():
                         for l in header_file:
                             line = l.split("\t", 2)
                             header = line[1].split(" ", 2)
+                            brat_dict = {}
                             if header[0] != pre_header:
-                                brat_dict = {}
                                 brat_dict["T"] = "T" + str(counter)
                                 brat_dict['label'] = header[0]
                                 brat_dict['start'] = int(header[1])
                                 brat_dict['end'] = int(header[2])
                                 brat_dict['text'] = line[2].strip()
+
                                 # brat_dict["T" + str(counter)] = line[1] + "\t" + line[2]
                                 counter += 1
+                            else:
+                                print("Error")
+                                continue
                             pre_header = header[0]
                             ann_list.append(brat_dict)
                         header_file.close()
@@ -116,7 +120,7 @@ class merge():
     def get_variables(self, variable_root):
         print(
             "List of removed variables that have been removed if the variable is duration/Tiempo (not min, hor) and if a longest variable is available for that begin span.")
-        # 
+        #
         #
         counter_removed = 0
         varibale = dict()
@@ -532,7 +536,7 @@ if __name__ == "__main__":
 
     section_root = os.path.join(merge_func.parentDir, "documents", "ANN_SECTION")
 
-    if len(args.data) != 0:
+    if args.data != None:
         section_root = args.data
 
     annotators_list = []
