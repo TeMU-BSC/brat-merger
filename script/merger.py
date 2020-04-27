@@ -82,7 +82,6 @@ class merge():
                             # brat_dict["T" + str(counter)] = line[1] + "\t" + line[2]
                             counter += 1
                         else:
-                            print("Error")
                             continue
                         pre_header = header[0]
                         ann_list.append(brat_dict)
@@ -520,11 +519,9 @@ if __name__ == "__main__":
 
     merge_func = merge()
 
-    merge_func.set = args.set
-
     section_root = os.path.join(merge_func.parentDir, "documents", "ANN_SECTION")
 
-    if args.data != None:
+    if args.data is not None:
         section_root = args.data
 
 
