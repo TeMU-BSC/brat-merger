@@ -205,6 +205,15 @@ class merge():
                                             break
                                     except:
                                         print("ERRPR", brat_dict[keys_2])
+                            if header_spans[2] == header_spans_2[2]:
+                                if int(header_spans[1]) == int(header_spans_2[1]):
+                                    try:
+                                        if int(header_spans[0]) > int(header_spans_2[0]):
+                                            final_line = ""
+                                            break
+                                    except:
+                                        print("ERRPR", brat_dict[keys_2])
+
                         if final_line != "":
                             temp = brat_dict[keys]
                             final_brat_dict = {}
@@ -506,6 +515,8 @@ class merge():
             for section, variables in section_varibale.items():
                 for var in variables:
                     if var["T"].startswith("T"):
+                        tuple = ()
+
                         final_brat_f.write('T' + str(T) +
                                            "\t" + var['label'] + " " + str(var['start']) + " " + str(var['end']) +
                                            "\t" + var['text'] + "\n")
@@ -524,7 +535,7 @@ class merge():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="analysis")
-    parser.add_argument('--data', help='Input ANN EHRs directories.')
+    parser.add_argument('--data', help='Input of ANN directories (SECTION AND VARIABLES).')
 
     args = parser.parse_args()
 
