@@ -205,10 +205,9 @@ class merge():
                                             break
                                     except:
                                         print("ERRPR", brat_dict[keys_2])
-                            if header_spans[2] == header_spans_2[2]:
-                                if int(header_spans[1]) == int(header_spans_2[1]):
+                                if int(header_spans[2]) == int(header_spans_2[2]):
                                     try:
-                                        if int(header_spans[0]) > int(header_spans_2[0]):
+                                        if int(header_spans[1]) > int(header_spans_2[1]):
                                             final_line = ""
                                             break
                                     except:
