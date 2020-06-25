@@ -161,7 +161,7 @@ class Entity:
                     varibale_dict[f] = entities_ordered
                     varibale_hash_dict[f] = brat_hash_dict
             else:
-                os.remove(os.path.join(variable_root, f))
+                # os.remove(os.path.join(variable_root, f))
                 print("REMOVE:", os.path.join(variable_root, f))
 
         print(counter_removed, "Number of removed based on Duration, shortess length\n")

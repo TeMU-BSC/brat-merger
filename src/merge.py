@@ -193,8 +193,12 @@ class Merger:
 
     @staticmethod
     def diagnostic_filterring(section_variable):
-        print("Remove Diagnostic variables that are not in Diagnostic seccion ")
-        counter = 0
+        print("Removing Diagnostic variables that are not in Diagnostic seccion and ")
+        print("Removing Etiologia variables that are coming with their related Diagnostic and")
+        print("Removing Arteria_afectada variables that are coming with Hemorragia Diagnostic")
+        counter_diag = 0
+        counter_etiologia = 0
+        counter_arteria_afectada = 0
         all = 0
         section_variable_original = copy.deepcopy(section_variable)
         for file, sections in section_variable.items():
@@ -209,20 +213,20 @@ class Merger:
                             if (record["label"].split("_SUG_")[-1] in const.REQUIRED_MAIN_VARIABLES or
                                     record["label"].split("_SUG_")[-1] in const.REQUIRED_SECOND_VARIABLES):
                                 section_variable[file][section].remove(record)
-                                counter += 1
+                                counter_diag += 1
                         elif (record["label"].split("_SUG_")[-1] in const.REQUIRED_MAIN_VARIABLES or
                               record["label"].split("_SUG_")[-1] in const.REQUIRED_SECOND_VARIABLES_FIRST):
                             if record["label"].split("_SUG_")[-1] in first_main_variables:
                                 section_variable[file][section].remove(record)
-                                counter += 1
+                                counter_diag += 1
                                 # first_main_variables.append(record["label"].split("_SUG_")[-1])
                             else:
                                 first_main_variables.append(record["label"].split("_SUG_")[-1])
                                 if record["label"].split("_SUG_")[-1] == 'Hemorragia_cerebral':
                                     Hemorragia_enable = True
-
                 # For filtering Etiologia
-                if section not in const.REQUIRED_HEADERS:
+                if section in const.REQUIRED_HEADERS:
+                    new_record = sections[section][:]
                     for record in new_record:
                         all += 1
                         if record["T"] != "Details":
@@ -231,14 +235,22 @@ class Merger:
                                         not Utils.similarity_hemorragia_evidence(record["text"].split("_SUG_")[-1]) and
                                         Utils.similarity_isquemico_evidence(record["text"].split("_SUG_")[-1])):
                                     section_variable[file][section].remove(record)
+                                    counter_etiologia += 1
                                 elif (not Hemorragia_enable and
                                       Utils.similarity_hemorragia_evidence(record["text"].split("_SUG_")[-1]) and
                                       not Utils.similarity_isquemico_evidence(record["text"].split("_SUG_")[-1])):
                                     section_variable[file][section].remove(record)
+                                    counter_etiologia += 1
                             if record["label"].split("_SUG_")[-1] == "Arteria_afectada" and Hemorragia_enable:
                                 section_variable[file][section].remove(record)
+                                counter_arteria_afectada += 1
 
-        print("Number of removed variabes:", counter, "out of", all)
+
+        print("\nNumber of removed diagnostic variabes are not in Diagnostic Section: {}, "
+              "\nNumber of removed Etiologia variables that are coming with their related Diagnostic: {},"
+              "\nNumber of removed Arteria_afectada variables that are coming with Hemorragia Diagnostic: {},"
+              "\n out of {}\n".format(counter_diag, counter_etiologia, counter_arteria_afectada, all))
+
         return section_variable
 
 
