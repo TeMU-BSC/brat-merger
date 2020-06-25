@@ -46,7 +46,8 @@ class Entity:
     @staticmethod
     def get_variables(variable_root, validated_files):
         print(
-            "List of removed variables that have been removed if the variable is duration/Tiempo (not min, hor) and if a longest variable is available for that begin span.")
+            "Removing duration/Tiempo (not min, hor) variables and \n "
+            "Removing Shortest variables if beginning or ending of their span are same")
         #
         #
         counter_removed = 0
@@ -65,9 +66,6 @@ class Entity:
                     counter = 1
                     variable_brat_file = os.path.join(variable_root, f)
                     ann_list = []
-                    if f.startswith('sonespases_937961405'):
-                        check = 0
-
                     with open(variable_brat_file, "r", encoding="UTF-8") as pipeline_file:
                         for l in pipeline_file:
                             line = l.split("\t", 2)
@@ -164,6 +162,6 @@ class Entity:
                 # os.remove(os.path.join(variable_root, f))
                 print("REMOVE:", os.path.join(variable_root, f))
 
-        print(counter_removed, "Number of removed based on Duration, shortess length\n")
+        print(counter_removed, "Number of removed based on Duration, shortest length\n")
         return varibale_dict, varibale_hash_dict
 

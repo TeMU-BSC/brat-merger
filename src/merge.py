@@ -9,7 +9,7 @@ class Merger:
     @staticmethod
     def merged_dic(section, variables):
         print(
-            "List of removed pre-annotated _SUG_Lateralizacion and _SUG_Etiologia happend in the middle of the SUG Seccion")
+            "Removing _SUG_Lateralizacion and _SUG_Etiologia if they are in the middle of the Section")
         #
         removed_varibale = 0
         file_section_variavle = {}
