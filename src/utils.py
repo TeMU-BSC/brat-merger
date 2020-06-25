@@ -48,7 +48,7 @@ class Utils:
             The most similarity defined section with the given line
         """
 
-        list_similarities = difflib.get_close_matches(text, const.HEMORRAGIA_EVIDENCE, 1, 0.85)
+        list_similarities = difflib.get_close_matches(text.lower(), const.HEMORRAGIA_EVIDENCE, 1, 0.85)
         if len(list_similarities) > 0:
             return True
         else:
@@ -62,7 +62,7 @@ class Utils:
             The most similarity defined section with the given line
         """
 
-        list_similarities = difflib.get_close_matches(text, const.ISQUEMICO_EVIDENCE, 1, 0.85)
+        list_similarities = difflib.get_close_matches(text.lower(), const.ISQUEMICO_EVIDENCE, 1, 0.85)
         if len(list_similarities) > 0:
             return True
         else:
