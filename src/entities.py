@@ -1,6 +1,6 @@
 from os import listdir
 import os
-from src.utils import Utils
+from utils import Utils
 
 
 class Entity:

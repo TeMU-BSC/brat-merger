@@ -1,11 +1,10 @@
 from collections import OrderedDict
 import copy
-import src.const as const
-from src.utils import Utils
+import const as const
+from utils import Utils
 
 
 class Merger:
-
 
     @staticmethod
     def merged_dic(section, variables):

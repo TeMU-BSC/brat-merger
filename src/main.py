@@ -1,9 +1,9 @@
 import argparse
 import os
-from src.entities import Entity
-from src.utils import Utils
-from src.merge import Merger
-from src.writer import Write
+from entities import Entity
+from utils import Utils
+from merge import Merger
+from writer import Write
 
 
 if __name__ == "__main__":

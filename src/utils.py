@@ -1,7 +1,7 @@
 import difflib
 import os
 import string
-import src.const as const
+import const as const
 
 
 class Utils:
