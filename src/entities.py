@@ -114,6 +114,7 @@ class Entity:
                     for hash_var in removed_list:
                         del brat_hash_dict[hash_var]
 
+                    final_brat_dict = brat_dict.copy()
                     for keys in brat_dict:
 
                         header_spans = brat_dict[keys].split("\t", 1)[0].split(" ", 2)
@@ -121,38 +122,42 @@ class Entity:
                         # if keys.startswith("T37"):
                         #     print("Check")
 
-                        final_line = brat_dict[keys]
-                        for keys_2 in brat_dict:
+                        # final_line = brat_dict[keys]
+                        brat_dict_copy = final_brat_dict.copy()
+                        for keys_2 in brat_dict_copy:
                             header_spans_2 = brat_dict[keys_2].split("\t", 1)[0].split(" ", 2)
                             if header_spans[0] == header_spans_2[0]:
-                                if int(header_spans[1]) == int(header_spans_2[1]):
-                                    try:
-                                        if int(header_spans[2]) < int(header_spans_2[2]):
-                                            final_line = ""
-                                            break
-                                    except:
-                                        print("ERRPR", brat_dict[keys_2])
-                                if int(header_spans[2]) == int(header_spans_2[2]):
-                                    try:
-                                        if int(header_spans[1]) > int(header_spans_2[1]):
-                                            final_line = ""
-                                            break
-                                    except:
-                                        print("ERRPR", brat_dict[keys_2])
+                                if ((int(header_spans[1]) == int(header_spans_2[1]) and int(header_spans[2]) < int(header_spans_2[2])) or
+                                    (int(header_spans[2]) == int(header_spans_2[2]) and int(header_spans[1]) > int(header_spans_2[1])) or
+                                    (int(header_spans[1]) > int(header_spans_2[1]) and int(header_spans[2]) < int(header_spans_2[2]))):
+                                    final_brat_dict.pop(keys, None)
+                                    break
 
-                        if final_line != "":
-                            temp = brat_dict[keys]
-                            final_brat_dict = {}
-                            final_brat_dict["T"] = keys
-                            temp_core = temp.split("\t", 1)[0].split(" ")
-                            final_brat_dict['label'] = temp_core[0]
-                            final_brat_dict['start'] = int(temp_core[1])
-                            final_brat_dict['end'] = int(temp_core[2])
-                            final_brat_dict['text'] = temp.split("\t", 1)[1].strip()
-                            ann_list.append(final_brat_dict)
-                        else:
-                            # print(annotator, f, brat_dict[keys].strip())
-                            counter_removed += 1
+
+                        # if final_line != "":
+                        #     temp = brat_dict[keys]
+                        #     final_brat_dict = {}
+                        #     final_brat_dict["T"] = keys
+                        #     temp_core = temp.split("\t", 1)[0].split(" ")
+                        #     final_brat_dict['label'] = temp_core[0]
+                        #     final_brat_dict['start'] = int(temp_core[1])
+                        #     final_brat_dict['end'] = int(temp_core[2])
+                        #     final_brat_dict['text'] = temp.split("\t", 1)[1].strip()
+                        #     ann_list.append(final_brat_dict)
+                        # else:
+                        #     # print(annotator, f, brat_dict[keys].strip())
+                        #     counter_removed += 1
+
+                    for key, value in final_brat_dict.items():
+                        temp = final_brat_dict[key]
+                        final_brat = {}
+                        final_brat["T"] = key
+                        temp_core = temp.split("\t", 1)[0].split(" ")
+                        final_brat['label'] = temp_core[0]
+                        final_brat['start'] = int(temp_core[1])
+                        final_brat['end'] = int(temp_core[2])
+                        final_brat['text'] = temp.split("\t", 1)[1].strip()
+                        ann_list.append(final_brat)
 
                     entities_ordered = sorted(ann_list, key=lambda entity: entity['start'])
 

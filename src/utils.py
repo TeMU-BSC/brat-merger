@@ -54,6 +54,21 @@ class Utils:
         else:
             return False
 
+
+    @staticmethod
+    def similarity_etiologia_evidence(text):
+        """
+        :param line: input line
+        :return:
+            The most similarity defined section with the given line
+        """
+
+        list_similarities = difflib.get_close_matches(text.lower(), const.ETIOLOGIA_EVIDENCE, 1, 0.85)
+        if len(list_similarities) > 0:
+            return True
+        else:
+            return False
+
     @staticmethod
     def similarity_isquemico_evidence(text):
         """

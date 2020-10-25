@@ -14,7 +14,8 @@ T7	DURATION 919 924	1 mes
 T8	_SUG_Lateralizacion 976 983	derecha
 T9	DURATION 1002 1009	5 meses
 #9	AnnotatorNotes T9	P5M
-T10	_SUG_Etiologia 1038 1046	HABITUAL
+T190	_SUG_Etiologia 2038 2072	d'etiologia secundario a diseccion
+T10	_SUG_Localizacion 2050 2072	secundario a diseccion
 T11	_SUG_Ictus_isquemico 1258 1263	ictus
 T12	_SUG_Lateralizacion 1134 1141	derecho
 T13	_SUG_Lateralizacion 1193 1200	derecho
@@ -105,7 +106,7 @@ T91	_SUG_Localizacion 7896 7903	frontal
 T92	_SUG_Localizacion 7998 8009	subcortical
 T93	DATE 7838 7846	25.05.17
 #93	AnnotatorNotes T93	2017-05-25
-T94	_SUG_Hemorragia_cerebral 8057 8068	hemorrágica
+T94	_SUG_Ictus_isquemico 8057 8068	hemorrágica
 T95	_SUG_Ictus_isquemico 8048 8068	sufusión hemorrágica
 T96	_SUG_Hemorragia_cerebral 8316 8327	hemorragias
 T97	_SUG_Lateralizacion 8297 8304	derecho
