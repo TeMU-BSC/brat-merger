@@ -5,6 +5,7 @@ REQUIRED_MAIN_VARIABLES = ["Ictus_isquemico", "Ataque_isquemico_transitorio", "H
 
 REQUIRED_SECOND_VARIABLES = ["Arteria_afectada", "Localizacion", "Lateralizacion", "Etiologia"]
 
+# Order is important
 REQUIRED_SECOND_VARIABLES_FIRST = ["Lateralizacion", "Etiologia"]
 
 HEMORRAGIA_EVIDENCE = ["aneurisma","angiopatia amiloide","cavernoma de circunvolucion","diseccio","hipertensiva","indeterminada","malformacion arteriovenosa","microangiopatica","secundaria a malformacion vascular","secundaria a tumor","hipertensivo"]

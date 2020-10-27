@@ -209,58 +209,126 @@ class Merger:
                 etiologia_variables = [0, 0]
                 new_record = records[:]
                 Hemorragia_enable = False
+                etiologia_enable = False
+
+                # For finidng the best Etiologia (if a variable has one of ETIOLOGIA_EVIDENCE
+                # as a beginning word it is the best))
+                # Also find the first main variable is Hemorragia_cerebral or not, it effect which
+                # etiologia should be selected
+                if section in REQUIRED_HEADERS:
+                    new_record = sections[section][:]
+                    main_var = False
+                    for record in new_record:
+                        all += 1
+                        if record["T"] != "Details":
+                            if (record["label"].split("_SUG_")[-1] in const.REQUIRED_SECOND_VARIABLES_FIRST[1]
+                                    and Utils.similarity_etiologia_evidence(record["text"].split(" ")[0])):
+                                etiologia_enable = True
+                            elif not main_var:
+                                if record["label"].split("_SUG_")[-1] == 'Hemorragia_cerebral':
+                                    Hemorragia_enable = True
+                                if record["label"].split("_SUG_")[-1] in const.REQUIRED_MAIN_VARIABLES:
+                                    main_var = True
+
                 for record in new_record:
                     all += 1
                     if record["T"] != "Details":
                         if section not in REQUIRED_HEADERS:
+                            # If we are not in Diagnostic section, diagnostic variables should be removed.
                             if (record["label"].split("_SUG_")[-1] in const.REQUIRED_MAIN_VARIABLES or
                                     record["label"].split("_SUG_")[-1] in const.REQUIRED_SECOND_VARIABLES):
                                 section_variable[file][section].remove(record)
                                 counter_diag += 1
                         else:
+                            # if we hare in Diag section, main variables and etiologia and Lateralizacion should be
+                            # annotated once.
                             if (record["label"].split("_SUG_")[-1] in const.REQUIRED_MAIN_VARIABLES or
                                     record["label"].split("_SUG_")[-1] in const.REQUIRED_SECOND_VARIABLES_FIRST):
+                                # if we annotated the first one, then we should remove the current one
+                                # Just we need to keep start and end of the best etiologia for removing the conflicts
                                 if record["label"].split("_SUG_")[-1] in first_main_variables:
+                                    if (record["label"].split("_SUG_")[-1] in const.REQUIRED_SECOND_VARIABLES_FIRST[1]
+                                            and Utils.similarity_etiologia_evidence(record["text"].split(" ")[0])):
+                                        etiologia_variables = [record["start"], record["end"]]
                                     section_variable[file][section].remove(record)
-                                    counter_diag += 1
+                                    counter_etiologia += 1
                                     # first_main_variables.append(record["label"].split("_SUG_")[-1])
                                 else:
-                                    if (record["label"].split("_SUG_")[-1] in const.REQUIRED_SECOND_VARIABLES_FIRST[1] and
-                                            record["label"].split("_SUG_")[-1] not in first_main_variables and
+                                    # We need to keep start and end of the best etiologia for removing the conflicts
+                                    if (record["label"].split("_SUG_")[-1] in const.REQUIRED_SECOND_VARIABLES_FIRST[
+                                        1] and
                                             Utils.similarity_etiologia_evidence(record["text"].split(" ")[0])):
                                         etiologia_variables = [record["start"], record["end"]]
-                                    first_main_variables.append(record["label"].split("_SUG_")[-1])
-                                    if record["label"].split("_SUG_")[-1] == 'Hemorragia_cerebral':
-                                        Hemorragia_enable = True
-                            elif (record["start"] >= etiologia_variables[0] and
+                                    # if one of main variables annotated, we need to keep all of them
+                                    # to prevent of annotating again
+                                    if record["label"].split("_SUG_")[-1] in const.REQUIRED_MAIN_VARIABLES:
+                                        first_main_variables += const.REQUIRED_MAIN_VARIABLES
+                                    else:
+                                        # if it is not etiologia (it is Lateralizacion)
+                                        # annotated and keep it to prevent of annotating this type again
+                                        if (record["label"].split("_SUG_")[-1] in
+                                                const.REQUIRED_SECOND_VARIABLES_FIRST[0]):
+                                            first_main_variables.append(record["label"].split("_SUG_")[-1])
+                                        # If we do not have the best etiologia
+                                        # or we have and the current one is the best one
+                                        # check the next condition
+                                        elif (not etiologia_enable
+                                                or (
+                                                        record["label"].split("_SUG_")[-1] in
+                                                        const.REQUIRED_SECOND_VARIABLES_FIRST[1]
+                                                        and Utils.similarity_etiologia_evidence(
+                                                    record["text"].split(" ")[0])
+                                                )):
+                                            # Etiologio is depended on the type of main variable, if it does not valid
+                                            # we should remove it, it is valid
+                                            # annotated and keep it to prevent of annotating this type again
+                                            # if (Hemorragia_enable and
+                                            #         Utils.similarity_hemorragia_evidence(record["text"])):
+                                            #     section_variable[file][section].remove(record)
+                                            #     counter_etiologia += 1
+                                            # elif (not Hemorragia_enable and
+                                            #       Utils.similarity_isquemico_evidence(record["text"])):
+                                            #     section_variable[file][section].remove(record)
+                                            #     counter_etiologia += 1
+                                            # else:
+                                                first_main_variables.append(record["label"].split("_SUG_")[-1])
+                                        # otherwise remove it because we have best etiologia and this one is not it
+                                        else:
+                                            section_variable[file][section].remove(record)
+                                            counter_etiologia += 1
+                            # if not, the rest variables also should not conflict with etiologia variable if
+                            # has one of ETIOLOGIA_EVIDENCE as a beginning word
+                            else:
+                                if (record["start"] >= etiologia_variables[0] and
                                   record["end"] <= etiologia_variables[1]):
-                                section_variable[file][section].remove(record)
-                                counter_diag += 1
-
-
+                                    section_variable[file][section].remove(record)
+                                    counter_diag += 1
+                                elif (record["label"].split("_SUG_")[-1] == "Arteria_afectada" and Hemorragia_enable):
+                                    section_variable[file][section].remove(record)
+                                    counter_arteria_afectada += 1
 
                 # For filtering Etiologia
-                if section in REQUIRED_HEADERS:
-                    new_record = sections[section][:]
-                    for record in new_record:
-                        all += 1
-                        if record["T"] != "Details":
-                            if record["label"].split("_SUG_")[-1] == "Etiologia":
-                                if (Hemorragia_enable and
-                                        not Utils.similarity_hemorragia_evidence(record["text"].split("_SUG_")[-1]) and
-                                        Utils.similarity_isquemico_evidence(record["text"].split("_SUG_")[-1])):
-                                    section_variable[file][section].remove(record)
-                                    counter_etiologia += 1
-                                elif (not Hemorragia_enable and
-                                      Utils.similarity_hemorragia_evidence(record["text"].split("_SUG_")[-1]) and
-                                      not Utils.similarity_isquemico_evidence(record["text"].split("_SUG_")[-1])):
-                                    section_variable[file][section].remove(record)
-                                    counter_etiologia += 1
-                            if record["label"].split("_SUG_")[-1] == "Arteria_afectada" and Hemorragia_enable:
-                                section_variable[file][section].remove(record)
-                                counter_arteria_afectada += 1
+                # if section in REQUIRED_HEADERS:
+                #     new_record = sections[section][:]
+                #     for record in new_record:
+                #         all += 1
+                #         if record["T"] != "Details":
+                #             if record["label"].split("_SUG_")[-1] == "Etiologia":
+                #                 if (Hemorragia_enable and
+                #                         not Utils.similarity_hemorragia_evidence(record["text"]) and
+                #                         Utils.similarity_isquemico_evidence(record["text"])):
+                #                     section_variable[file][section].remove(record)
+                #                     counter_etiologia += 1
+                #                 elif (not Hemorragia_enable and
+                #                       Utils.similarity_hemorragia_evidence(record["text"]) and
+                #                       not Utils.similarity_isquemico_evidence(record["text"])):
+                #                     section_variable[file][section].remove(record)
+                #                     counter_etiologia += 1
+                #             if record["label"].split("_SUG_")[-1] == "Arteria_afectada" and Hemorragia_enable:
+                #                 section_variable[file][section].remove(record)
+                #                 counter_arteria_afectada += 1
 
-        print("\nNumber of removed diagnostic variabes are not in Diagnostic Section: {}, "
+        print("\nNumber of removed diagnostic variables are not in Diagnostic Section: {}, "
               "\nNumber of removed Etiologia variables that are coming with their related Diagnostic: {},"
               "\nNumber of removed Arteria_afectada variables that are coming with Hemorragia Diagnostic: {},"
               "\n out of {}\n".format(counter_diag, counter_etiologia, counter_arteria_afectada, all))
