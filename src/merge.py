@@ -209,6 +209,8 @@ class Merger:
                 etiologia_variables = [0, 0]
                 new_record = records[:]
                 Hemorragia_enable = False
+                ictus_Hemorragia_ataque_enable = False
+                main_var_span = 0
                 etiologia_enable = False
 
                 # For finidng the best Etiologia (if a variable has one of ETIOLOGIA_EVIDENCE
@@ -224,11 +226,23 @@ class Merger:
                             if (record["label"].split("_SUG_")[-1] in const.REQUIRED_SECOND_VARIABLES_FIRST[1]
                                     and Utils.similarity_etiologia_evidence(record["text"].split(" ")[0])):
                                 etiologia_enable = True
-                            elif not main_var:
-                                if record["label"].split("_SUG_")[-1] == 'Hemorragia_cerebral':
+                            else:
+                                if main_var and record["start"] == main_var_span and (record["label"].split("_SUG_")[-1] == 'Hemorragia_cerebral' or record["label"].split("_SUG_")[-1] == 'Ataque_isquemico_transitorio'  ) and record["text"].lower().startswith("ictus"):
                                     Hemorragia_enable = True
-                                # if record["label"].split("_SUG_")[-1] in const.REQUIRED_MAIN_VARIABLES:
-                                #     main_var = True
+                                    main_var = True
+                                    ictus_Hemorragia_ataque_enable = True
+                                if not main_var:
+                                    if record["label"].split("_SUG_")[-1] == 'Hemorragia_cerebral':
+                                        Hemorragia_enable = True
+                                        main_var = True
+                                        if record["text"].lower().startswith("ictus"):
+                                            ictus_Hemorragia_ataque_enable = True
+                                    elif record["label"].split("_SUG_")[-1] == 'Ataque_isquemico_transitorio' and record["text"].lower().startswith("ictus"):
+                                        main_var = True
+                                        ictus_Hemorragia_ataque_enable = True
+                                    elif record["label"].split("_SUG_")[-1] in const.REQUIRED_MAIN_VARIABLES:
+                                        main_var = True
+                                        main_var_span = record["start"]
 
                 for record in new_record:
                     all += 1
@@ -262,7 +276,7 @@ class Merger:
                                     # if one of main variables annotated, we need to keep all of them
                                     # to prevent of annotating again
                                     if record["label"].split("_SUG_")[-1] in const.REQUIRED_MAIN_VARIABLES:
-                                        if Hemorragia_enable and record["label"].split("_SUG_")[-1] != "Hemorragia_cerebral":
+                                        if ictus_Hemorragia_ataque_enable and (record["label"].split("_SUG_")[-1] != "Hemorragia_cerebral" and record["label"].split("_SUG_")[-1] != 'Ataque_isquemico_transitorio'):
                                             section_variable[file][section].remove(record)
                                         else:
                                             first_main_variables += const.REQUIRED_MAIN_VARIABLES

@@ -260,7 +260,7 @@ T228	_SUG_Lateralizacion 11699 11708	izquierdo
 T229	_SUG_Lateralizacion 11749 11758	izquierda
 T230	_SUG_Localizacion 11685 11698	frontoinsular
 T231	_SUG_Ictus_isquemico 11777 11781	ictus
-T232	_SUG_Hemorragia_cerebral 11777 11787	ictus hermo
+T232	_SUG_Ataque_isquemico_transitorio 11777 11787	ictus hermo
 T233	_SUG_Lateralizacion 11808 11818	izquierdos
 T234	_SUG_Localizacion 11791 11807	ganglios basales
 T235	_SUG_Ictus_isquemico 12027 12032	ICTUS

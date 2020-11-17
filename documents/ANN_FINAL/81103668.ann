@@ -100,7 +100,7 @@ T70	SECCION_DIAGNOSTICOS 11665 11676	DIAGNÓSTICO
 T71	_SUG_Localizacion 11685 11698	frontoinsular
 T72	_SUG_Lateralizacion 11699 11708	izquierdo
 T73	_SUG_Etiologia 11712 11732	causa cardioembólica
-T74	_SUG_Hemorragia_cerebral 11777 11787	ictus hermo
+T74	_SUG_Ataque_isquemico_transitorio 11777 11787	ictus hermo
 T75	_SUG_Localizacion 11791 11807	ganglios basales
 T76	FECHA 12051 12061	04.04.2017
 #76	AnnotatorNotes T76	2017-04-04
