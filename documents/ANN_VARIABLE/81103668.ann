@@ -1,12 +1,270 @@
-T22	_SUG_Arteria_afectada 503 506	ACM
-T23	_SUG_Arteria_afectada 533 536	ACI
-T24	_SUG_Ictus_isquemico 471 476	Ictus
-T25	_SUG_Lateralizacion 507 511	izda
-T26	_SUG_Lateralizacion 537 546	izquierda
-T27	DATE 640 644	2006
-#27	AnnotatorNotes T27	2006-UNDEF-month-UNDEF-day
-T28	DATE 659 669	04/08/2017
-#28	AnnotatorNotes T28	2017-08-04
-T29	_SUG_Etiologia 696 705	a estudio
-T30	_SUG_Etiologia 698 705	estudio
-T31	_SUG_Lateralizacion 686 695	bilateral
+T1	DATE 250 260	25.03.2017
+#1	AnnotatorNotes T1	2017-03-25
+T2	TIME 263 268	15:40
+#2	AnnotatorNotes T2	15:40
+T3	_SUG_Ictus_isquemico 292 297	ICTUS
+T4	DATE 322 332	25.03.2017
+#4	AnnotatorNotes T4	2017-03-25
+T5	TIME 335 340	13:26
+#5	AnnotatorNotes T5	13:26
+T6	_SUG_Arteria_afectada 497 500	ACM
+T7	_SUG_Arteria_afectada 546 548	M1
+T8	_SUG_Etiologia 552 576	etiología cardioembólica
+T9	_SUG_Etiologia 562 576	cardioembólica
+T10	_SUG_Ictus_isquemico 467 472	ictus
+T11	_SUG_Ictus_isquemico 467 482	ictus isquémico
+T12	_SUG_Lateralizacion 501 510	izquierda
+T13	DURATION 435 442	76 años
+#13	AnnotatorNotes T13	P76Y
+T14	_SUG_Trombectomia_mecanica 621 647	Tratamiento de reperfusión
+T15	_SUG_Trombectomia_mecanica 682 694	trombectomía
+T16	_SUG_Trombectomia_mecanica 682 703	trombectomía mecánica
+T17	_SUG_Trombectomia_mecanica 695 703	mecánica
+T18	_SUG_Trombolisis_intravenosa 621 647	Tratamiento de reperfusión
+T19	_SUG_Trombolisis_intravenosa 621 653	Tratamiento de reperfusión aguda
+T20	_SUG_Trombolisis_intravenosa 621 679	Tratamiento de reperfusión aguda mendiante fibrinolisis ev
+T21	_SUG_Trombolisis_intravenosa 664 676	fibrinolisis
+T22	_SUG_Trombolisis_intravenosa 664 679	fibrinolisis ev
+T23	_SUG_Lateralizacion 795 796	e
+T24	_SUG_Etiologia 897 904	Estudio
+T25	_SUG_Etiologia 951 958	estudio
+T26	_SUG_Arteria_afectada 1303 1307	ANCA
+T27	_SUG_Etiologia 2234 2242	habitual
+T28	_SUG_Localizacion 2595 2606	ventricular
+T29	_SUG_ASPECTS 2646 2651	SPECT
+T30	DURATION 3184 3191	3 meses
+#30	AnnotatorNotes T30	P3M
+T31	DURATION 3309 3318	diez años
+#31	AnnotatorNotes T31	P10Y
+T32	_SUG_Lateralizacion 3501 3502	D
+T33	_SUG_TAC_craneal 3441 3443	TC
+T34	DATE 3603 3606	4/7
+#34	AnnotatorNotes T34	2017-07-04
+T35	DATE 3610 3616	8/7/16
+#35	AnnotatorNotes T35	2016-07-08
+T36	_SUG_Etiologia 3629 3637	habitual
+T37	DATE 3639 3644	07/16
+#37	AnnotatorNotes T37	2016-07-UNDEF-day
+T38	_SUG_Tratamiento_anticoagulante 3763 3770	Sintrom
+T39	_SUG_Lateralizacion 4094 4099	ducha
+T40	_SUG_mRankin 4157 4164	mRS 1-2
+T41	_SUG_Tratamiento_anticoagulante 4266 4273	sintrom
+T42	DURATION 4194 4201	76 años
+#42	AnnotatorNotes T42	P76Y
+T43	DATE 4340 4348	19/03/17
+#43	AnnotatorNotes T43	2017-03-19
+T44	DATE 4535 4542	25.3.17
+#44	AnnotatorNotes T44	2017-03-25
+T45	TIME 4522 4527	11:30
+#45	AnnotatorNotes T45	11:30
+T46	_SUG_Lateralizacion 4702 4709	derecho
+T47	TIME 4737 4742	13:27
+#47	AnnotatorNotes T47	13:27
+T48	_SUG_Lateralizacion 4905 4914	izquierda
+T49	_SUG_Lateralizacion 4965 4972	derecha
+T50	_SUG_Lateralizacion 5011 5018	derecha
+T51	_SUG_Localizacion 4996 5002	facial
+T52	_SUG_Lateralizacion 5053 5060	derecha
+T53	_SUG_ASPECTS 5135 5142	aspecto
+T54	_SUG_Lateralizacion 5122 5131	izquierdo
+T55	_SUG_Lateralizacion 5231 5238	derecho
+T56	_SUG_Lateralizacion 5247 5256	izquierdo
+T57	_SUG_NIHSS 5260 5311	NIHSS: 1+2+2+2+2 // 2+(4+0)+(4+0) // 0+2+3+0+0 = 24
+T58	_SUG_ASPECTS 5500 5509	ASPECTS 6
+T59	_SUG_Arteria_afectada 5370 5372	M1
+T60	_SUG_Arteria_afectada 5466 5482	arteria cerebral
+T61	_SUG_Arteria_afectada 5466 5488	arteria cerebral media
+T62	_SUG_Lateralizacion 5373 5382	izquierda
+T63	_SUG_Lateralizacion 5489 5498	izquierda
+T64	_SUG_Localizacion 5451 5459	profundo
+T65	_SUG_TAC_craneal 5330 5332	TC
+T66	_SUG_TAC_craneal 5330 5340	TC craneal
+T67	_SUG_TAC_craneal 5333 5340	craneal
+T68	_SUG_Arteria_afectada 5615 5624	carotídea
+T69	_SUG_TAC_craneal 5570 5577	AngioTC
+T70	_SUG_Arteria_afectada 5689 5705	arteria cerebral
+T71	_SUG_Arteria_afectada 5689 5711	arteria cerebral media
+T72	_SUG_Etiologia 5734 5754	causa cardioembólica
+T73	_SUG_Etiologia 5740 5754	cardioembólica
+T74	_SUG_Ictus_isquemico 5653 5658	Ictus
+T75	_SUG_Ictus_isquemico 5653 5668	Ictus isquémico
+T76	_SUG_Lateralizacion 5712 5721	izquierda
+T77	_SUG_Trombectomia_mecanica 5806 5832	tratamiento de reperfusión
+T78	_SUG_Trombectomia_mecanica 5850 5862	trombectomía
+T79	_SUG_Trombectomia_mecanica 5850 5871	trombectomía mecánica
+T80	_SUG_Trombectomia_mecanica 5863 5871	mecánica
+T81	_SUG_Trombolisis_intravenosa 5806 5832	tratamiento de reperfusión
+T82	_SUG_Trombolisis_intravenosa 5806 5838	tratamiento de reperfusión aguda
+T83	_SUG_Trombolisis_intravenosa 5843 5847	rtPA
+T84	_SUG_Trombectomia_mecanica 5915 5939	tratamiento endovascular
+T85	_SUG_Trombectomia_mecanica 5927 5939	endovascular
+T86	_SUG_Trombolisis_intravenosa 5959 5963	rtPA
+T87	TIME 5964 5969	14:04
+#87	AnnotatorNotes T87	14:04
+T88	_SUG_TAC_craneal 6095 6097	TC
+T89	_SUG_Etiologia 6218 6225	insular
+T90	_SUG_Lateralizacion 6237 6247	izquierdas
+T91	_SUG_Lateralizacion 6292 6305	ispilaterales
+T92	_SUG_Localizacion 6209 6216	frontal
+T93	_SUG_Localizacion 6228 6236	temporal
+T94	_SUG_Localizacion 6272 6291	ganglios de la base
+T95	_SUG_TAC_craneal 6131 6134	TAC
+T96	_SUG_TAC_craneal 6131 6142	TAC CRANEAL
+T97	_SUG_TAC_craneal 6135 6142	CRANEAL
+T98	_SUG_ASPECTS 6362 6373	ASPECT de 6
+T99	_SUG_Localizacion 6438 6446	parietal
+T100	_SUG_Arteria_afectada 6523 6525	M1
+T101	_SUG_Arteria_afectada 6533 6536	ACM
+T102	_SUG_Arteria_afectada 6580 6582	M2
+T103	_SUG_Lateralizacion 6463 6464	E
+T104	_SUG_Lateralizacion 6537 6546	izquierda
+T105	_SUG_Localizacion 6610 6619	posterior
+T106	_SUG_Trombolisis_intravenosa 6491 6500	trombosis
+T107	_SUG_Trombolisis_intravenosa 6491 6501	trombosis/
+T108	_SUG_Lateralizacion 6662 6671	bilateral
+T109	_SUG_Tratamiento_antiagregante 6654 6661	pleural
+T110	_SUG_Etiologia 6903 6910	insular
+T111	_SUG_Hemorragia_cerebral 6803 6811	hematoma
+T112	_SUG_Lateralizacion 6846 6851	izdos
+T113	_SUG_Lateralizacion 6911 6915	izda
+T114	_SUG_Lateralizacion 7161 7171	hemisferio
+T115	_SUG_Lateralizacion 7181 7185	izdo
+T116	_SUG_Lateralizacion 7283 7284	e
+T117	_SUG_Localizacion 6829 6845	ganglios basales
+T118	_SUG_Localizacion 6881 6888	caudado
+T119	_SUG_Localizacion 6953 6964	ventricular
+T120	_SUG_Localizacion 7285 7301	intraventricular
+T121	_SUG_TAC_craneal 6708 6710	TC
+T122	_SUG_TAC_craneal 6752 6754	TC
+T123	_SUG_TAC_craneal 7041 7043	TC
+T124	_SUG_Trombectomia_mecanica 7112 7124	endovascular
+T125	DATE 6719 6726	25.3.17
+#125	AnnotatorNotes T125	2017-03-25
+T126	TIME 6769 6774	13:43
+#126	AnnotatorNotes T126	13:43
+T127	_SUG_Localizacion 7370 7378	cerebelo
+T128	_SUG_Etiologia 7464 7471	estudio
+T129	_SUG_Hemorragia_cerebral 7495 7503	hematoma
+T130	_SUG_Lateralizacion 7524 7529	izdos
+T131	_SUG_Lateralizacion 7592 7597	ambas
+T132	_SUG_Lateralizacion 7648 7652	izda
+T133	_SUG_Localizacion 7507 7523	ganglios basales
+T134	_SUG_Localizacion 7550 7561	ventricular
+T135	_SUG_Localizacion 7604 7615	occipitales
+T136	_SUG_TAC_craneal 7420 7422	TC
+T137	_SUG_TAC_craneal 7472 7474	TC
+T138	_SUG_TAC_craneal 7734 7736	TC
+T139	DATE 7431 7438	26.3.17
+#139	AnnotatorNotes T139	2017-03-26
+T140	_SUG_Lateralizacion 7883 7892	izquierdo
+T141	_SUG_Lateralizacion 7961 7968	derecha
+T142	_SUG_Localizacion 7864 7874	ventrículo
+T143	_SUG_Arteria_afectada 8093 8096	ACM
+T144	_SUG_Etiologia 8036 8043	insular
+T145	_SUG_Etiologia 8063 8080	probablemente con
+T146	_SUG_Lateralizacion 8034 8035	e
+T147	_SUG_Lateralizacion 8044 8049	izdas
+T148	_SUG_Lateralizacion 8097 8101	Izda
+T149	_SUG_Localizacion 8006 8013	cortico
+T150	_SUG_Localizacion 8014 8025	subcortical
+T151	_SUG_Localizacion 8026 8033	frontal
+T152	_SUG_TAC_craneal 8121 8123	TC
+T153	DATE 8132 8139	31.3.17
+#153	AnnotatorNotes T153	2017-03-31
+T154	_SUG_Hemorragia_cerebral 8210 8218	hematoma
+T155	_SUG_Hemorragia_cerebral 8278 8288	hemorragia
+T156	_SUG_Lateralizacion 8239 8249	izquierdos
+T157	_SUG_Localizacion 8222 8238	ganglios basales
+T158	_SUG_TAC_craneal 8165 8167	TC
+T159	DATE 8172 8182	26/03/2017
+#159	AnnotatorNotes T159	2017-03-26
+T160	_SUG_Lateralizacion 8348 8353	ambas
+T161	_SUG_Localizacion 8360 8371	occipitales
+T162	_SUG_Localizacion 8372 8385	ventriculares
+T163	_SUG_Lateralizacion 8447 8456	izquierdo
+T164	_SUG_Localizacion 8428 8438	ventrículo
+T165	_SUG_Arteria_afectada 8628 8631	ACM
+T166	_SUG_Etiologia 8658 8665	estudio
+T167	_SUG_Lateralizacion 8544 8553	izquierda
+T168	_SUG_Lateralizacion 8632 8641	izquierda
+T169	_SUG_Localizacion 8536 8543	frontal
+T170	_SUG_Hemorragia_cerebral 8724 8733	hemograma
+T171	_SUG_Trombolisis_intravenosa 8776 8780	TTPa
+T172	_SUG_Arteria_afectada 9000 9003	ACM
+T173	_SUG_Lateralizacion 9003 9004	I
+T174	_SUG_Localizacion 8990 8994	TICI
+T175	_SUG_Trombectomia_mecanica 8956 8968	TROMBECTOMIA
+T176	_SUG_Trombectomia_mecanica 8956 8977	TROMBECTOMIA MECÁNICA
+T177	_SUG_Trombectomia_mecanica 8969 8977	MECÁNICA
+T178	_SUG_Trombectomia_mecanica 9049 9061	TROMBECTOMÍA
+T179	_SUG_Arteria_afectada 9072 9074	M1
+T180	_SUG_Arteria_afectada 9090 9094	ACAI
+T181	_SUG_Lateralizacion 9075 9076	I
+T182	_SUG_Trombectomia_mecanica 9159 9171	trombectomía
+T183	_SUG_Arteria_afectada 9321 9337	Arteria carótida
+T184	_SUG_Arteria_afectada 9321 9345	Arteria carótida interna
+T185	_SUG_Arteria_afectada 9329 9337	carótida
+T186	_SUG_Arteria_afectada 9329 9345	carótida interna
+T187	_SUG_Lateralizacion 9346 9355	izquierda
+T188	_SUG_Localizacion 9435 9442	femoral
+T189	TIME 9421 9426	14:20
+#189	AnnotatorNotes T189	14:20
+T190	TIME 9445 9449	4:35
+#190	AnnotatorNotes T190	4:35
+T191	TIME 9465 9470	14:39
+#191	AnnotatorNotes T191	14:39
+T192	TIME 9484 9489	14:49
+#192	AnnotatorNotes T192	14:49
+T193	TIME 9504 9509	14:57
+#193	AnnotatorNotes T193	14:57
+T194	TIME 9523 9528	15:05
+#194	AnnotatorNotes T194	15:05
+T195	_SUG_Arteria_afectada 9592 9595	ACA
+T196	TIME 9542 9547	15:21
+#196	AnnotatorNotes T196	15:21
+T197	TIME 9586 9591	15:30
+#197	AnnotatorNotes T197	15:30
+T198	TIME 9618 9623	15:35
+#198	AnnotatorNotes T198	15:35
+T199	_SUG_Lateralizacion 9668 9675	derecha
+T200	_SUG_Localizacion 9660 9667	femoral
+T201	_SUG_Arteria_afectada 9794 9796	M1
+T202	_SUG_Lateralizacion 9797 9806	izquierda
+T203	_SUG_Trombectomia_mecanica 9913 9925	trombectomía
+T204	_SUG_Arteria_afectada 10060 10064	ACAI
+T205	_SUG_Localizacion 10168 10172	TICI
+T206	_SUG_Recanalizacion 10153 10167	recanalización
+T207	_SUG_Arteria_afectada 10203 10206	ACM
+T208	_SUG_Lateralizacion 10206 10207	I
+T209	_SUG_Lateralizacion 10360 10367	derecho
+T210	_SUG_Lateralizacion 10526 10533	derecho
+T211	_SUG_Localizacion 10352 10359	femoral
+T212	_SUG_Lateralizacion 10825 10832	derecho
+T213	_SUG_Lateralizacion 10841 10850	izquierdo
+T214	_SUG_Etiologia 11451 11454	sus
+T215	DATE 11517 11523	4.4.17
+#215	AnnotatorNotes T215	2017-04-04
+T216	TIME 11530 11535	12:15
+#216	AnnotatorNotes T216	12:15
+T217	_SUG_Trombectomia_mecanica 11613 11625	trombectomia
+T218	_SUG_Trombectomia_mecanica 11613 11626	trombectomia/
+T219	_SUG_Trombectomia_mecanica 11626 11634	mecanica
+T220	_SUG_Trombolisis_intravenosa 11588 11599	Trombolisis
+T221	_SUG_Trombolisis_intravenosa 11588 11611	Trombolisis intravenosa
+T222	_SUG_Arteria_afectada 11742 11745	ACM
+T223	_SUG_Arteria_afectada 11746 11748	M1
+T224	_SUG_Etiologia 11712 11732	causa cardioembólica
+T225	_SUG_Etiologia 11718 11732	cardioembólica
+T226	_SUG_Etiologia 11759 11773	cardioembólica
+T228	_SUG_Lateralizacion 11699 11708	izquierdo
+T229	_SUG_Lateralizacion 11749 11758	izquierda
+T230	_SUG_Localizacion 11685 11698	frontoinsular
+T231	_SUG_Ictus_isquemico 11777 11781	ictus
+T232	_SUG_Hemorragia_cerebral 11777 11787	ictus hermo
+T233	_SUG_Lateralizacion 11808 11818	izquierdos
+T234	_SUG_Localizacion 11791 11807	ganglios basales
+T235	_SUG_Ictus_isquemico 12027 12032	ICTUS
+T236	DATE 12051 12061	04.04.2017
+#236	AnnotatorNotes T236	2017-04-04
+T237	DATE 12138 12148	04.04.2017
+#237	AnnotatorNotes T237	2017-04-04

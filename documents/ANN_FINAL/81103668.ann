@@ -1,10 +1,108 @@
-T0	SECCION_DIAGNOSTICOS 0 11	DIAGNÓSTICO
-T1	_SUG_Ictus_isquemico 471 476	Ictus
-T2	_SUG_Arteria_afectada 503 506	ACM
-T3	_SUG_Lateralizacion 507 511	izda
-T4	_SUG_Arteria_afectada 533 536	ACI
-T5	FECHA 640 644	2006
-#5	AnnotatorNotes T5	2006-UNDEF-month-UNDEF-day
-T6	FECHA 659 669	04/08/2017
-#6	AnnotatorNotes T6	2017-08-04
-T7	_SUG_Etiologia 696 705	a estudio
+T0	FECHA 250 260	25.03.2017
+#0	AnnotatorNotes T0	2017-03-25
+T1	HORA 263 268	15:40
+#1	AnnotatorNotes T1	15:40
+T2	FECHA 322 332	25.03.2017
+#2	AnnotatorNotes T2	2017-03-25
+T3	HORA 335 340	13:26
+#3	AnnotatorNotes T3	13:26
+T4	_SUG_Trombectomia_mecanica 621 647	Tratamiento de reperfusión
+T5	_SUG_Trombolisis_intravenosa 621 679	Tratamiento de reperfusión aguda mendiante fibrinolisis ev
+T6	_SUG_Trombectomia_mecanica 682 703	trombectomía mecánica
+T7	_SUG_ASPECTS 2646 2651	SPECT
+T8	_SUG_TAC_craneal 3441 3443	TC
+T9	FECHA 3603 3606	4/7
+#9	AnnotatorNotes T9	2017-07-04
+T10	FECHA 3610 3616	8/7/16
+#10	AnnotatorNotes T10	2016-07-08
+T11	FECHA 3639 3644	07/16
+#11	AnnotatorNotes T11	2016-07-UNDEF-day
+T12	_SUG_Tratamiento_anticoagulante 3763 3770	Sintrom
+T13	_SUG_mRankin 4157 4164	mRS 1-2
+T14	_SUG_Tratamiento_anticoagulante 4266 4273	sintrom
+T15	FECHA 4340 4348	19/03/17
+#15	AnnotatorNotes T15	2017-03-19
+T16	HORA 4522 4527	11:30
+#16	AnnotatorNotes T16	11:30
+T17	FECHA 4535 4542	25.3.17
+#17	AnnotatorNotes T17	2017-03-25
+T18	HORA 4737 4742	13:27
+#18	AnnotatorNotes T18	13:27
+T19	_SUG_ASPECTS 5135 5142	aspecto
+T20	_SUG_NIHSS 5260 5311	NIHSS: 1+2+2+2+2 // 2+(4+0)+(4+0) // 0+2+3+0+0 = 24
+T21	_SUG_TAC_craneal 5330 5340	TC craneal
+T22	_SUG_ASPECTS 5500 5509	ASPECTS 6
+T23	_SUG_TAC_craneal 5570 5577	AngioTC
+T24	_SUG_Trombectomia_mecanica 5806 5832	tratamiento de reperfusión
+T25	_SUG_Trombolisis_intravenosa 5806 5838	tratamiento de reperfusión aguda
+T26	_SUG_Trombolisis_intravenosa 5843 5847	rtPA
+T27	_SUG_Trombectomia_mecanica 5850 5871	trombectomía mecánica
+T28	_SUG_Trombectomia_mecanica 5915 5939	tratamiento endovascular
+T29	_SUG_Trombolisis_intravenosa 5959 5963	rtPA
+T30	HORA 5964 5969	14:04
+#30	AnnotatorNotes T30	14:04
+T31	_SUG_TAC_craneal 6095 6097	TC
+T32	_SUG_TAC_craneal 6131 6142	TAC CRANEAL
+T33	_SUG_ASPECTS 6362 6373	ASPECT de 6
+T34	_SUG_Trombolisis_intravenosa 6491 6500	trombosis
+T35	_SUG_Tratamiento_antiagregante 6654 6661	pleural
+T36	_SUG_TAC_craneal 6708 6710	TC
+T37	FECHA 6719 6726	25.3.17
+#37	AnnotatorNotes T37	2017-03-25
+T38	_SUG_TAC_craneal 6752 6754	TC
+T39	HORA 6769 6774	13:43
+#39	AnnotatorNotes T39	13:43
+T40	_SUG_TAC_craneal 7041 7043	TC
+T41	_SUG_Trombectomia_mecanica 7112 7124	endovascular
+T42	_SUG_TAC_craneal 7420 7422	TC
+T43	FECHA 7431 7438	26.3.17
+#43	AnnotatorNotes T43	2017-03-26
+T44	_SUG_TAC_craneal 7472 7474	TC
+T45	_SUG_TAC_craneal 7734 7736	TC
+T46	_SUG_TAC_craneal 8121 8123	TC
+T47	FECHA 8132 8139	31.3.17
+#47	AnnotatorNotes T47	2017-03-31
+T48	_SUG_TAC_craneal 8165 8167	TC
+T49	FECHA 8172 8182	26/03/2017
+#49	AnnotatorNotes T49	2017-03-26
+T50	_SUG_Trombolisis_intravenosa 8776 8780	TTPa
+T51	_SUG_Trombectomia_mecanica 8956 8977	TROMBECTOMIA MECÁNICA
+T52	_SUG_Trombectomia_mecanica 9049 9061	TROMBECTOMÍA
+T53	_SUG_Trombectomia_mecanica 9159 9171	trombectomía
+T54	HORA 9421 9426	14:20
+#54	AnnotatorNotes T54	14:20
+T55	HORA 9445 9449	4:35
+#55	AnnotatorNotes T55	4:35
+T56	HORA 9465 9470	14:39
+#56	AnnotatorNotes T56	14:39
+T57	HORA 9484 9489	14:49
+#57	AnnotatorNotes T57	14:49
+T58	HORA 9504 9509	14:57
+#58	AnnotatorNotes T58	14:57
+T59	HORA 9523 9528	15:05
+#59	AnnotatorNotes T59	15:05
+T60	HORA 9542 9547	15:21
+#60	AnnotatorNotes T60	15:21
+T61	HORA 9586 9591	15:30
+#61	AnnotatorNotes T61	15:30
+T62	HORA 9618 9623	15:35
+#62	AnnotatorNotes T62	15:35
+T63	_SUG_Trombectomia_mecanica 9913 9925	trombectomía
+T64	_SUG_Recanalizacion 10153 10167	recanalización
+T65	FECHA 11517 11523	4.4.17
+#65	AnnotatorNotes T65	2017-04-04
+T66	HORA 11530 11535	12:15
+#66	AnnotatorNotes T66	12:15
+T67	_SUG_Trombolisis_intravenosa 11588 11611	Trombolisis intravenosa
+T68	_SUG_Trombectomia_mecanica 11613 11625	trombectomia
+T69	_SUG_Trombectomia_mecanica 11626 11634	mecanica
+T70	SECCION_DIAGNOSTICOS 11665 11676	DIAGNÓSTICO
+T71	_SUG_Localizacion 11685 11698	frontoinsular
+T72	_SUG_Lateralizacion 11699 11708	izquierdo
+T73	_SUG_Etiologia 11712 11732	causa cardioembólica
+T74	_SUG_Hemorragia_cerebral 11777 11787	ictus hermo
+T75	_SUG_Localizacion 11791 11807	ganglios basales
+T76	FECHA 12051 12061	04.04.2017
+#76	AnnotatorNotes T76	2017-04-04
+T77	FECHA 12138 12148	04.04.2017
+#77	AnnotatorNotes T77	2017-04-04

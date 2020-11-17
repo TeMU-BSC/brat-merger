@@ -132,6 +132,10 @@ class Entity:
                                     (int(header_spans[1]) > int(header_spans_2[1]) and int(header_spans[2]) < int(header_spans_2[2]))):
                                     final_brat_dict.pop(keys, None)
                                     break
+                                if (int(header_spans[1]) == int(header_spans_2[1]) and int(header_spans[2]) == int(header_spans_2[2]) and (keys_2 != keys)):
+                                    final_brat_dict.pop(keys, None)
+                                    break
+
 
 
                         # if final_line != "":

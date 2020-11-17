@@ -227,8 +227,8 @@ class Merger:
                             elif not main_var:
                                 if record["label"].split("_SUG_")[-1] == 'Hemorragia_cerebral':
                                     Hemorragia_enable = True
-                                if record["label"].split("_SUG_")[-1] in const.REQUIRED_MAIN_VARIABLES:
-                                    main_var = True
+                                # if record["label"].split("_SUG_")[-1] in const.REQUIRED_MAIN_VARIABLES:
+                                #     main_var = True
 
                 for record in new_record:
                     all += 1
@@ -262,7 +262,10 @@ class Merger:
                                     # if one of main variables annotated, we need to keep all of them
                                     # to prevent of annotating again
                                     if record["label"].split("_SUG_")[-1] in const.REQUIRED_MAIN_VARIABLES:
-                                        first_main_variables += const.REQUIRED_MAIN_VARIABLES
+                                        if Hemorragia_enable and record["label"].split("_SUG_")[-1] != "Hemorragia_cerebral":
+                                            section_variable[file][section].remove(record)
+                                        else:
+                                            first_main_variables += const.REQUIRED_MAIN_VARIABLES
                                     else:
                                         # if it is not etiologia (it is Lateralizacion)
                                         # annotated and keep it to prevent of annotating this type again
